@@ -1,8 +1,7 @@
 import Link from "next/link";
 
-export default function OrderPage({ params }: { params: { id: string } }) {
-  // In a real app this would fetch the order from a database.
-  // For this demo we show a confirmation page for any order id.
+export default async function OrderPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   return (
     <div className="flex flex-col flex-1 py-20 px-4">
       <div className="max-w-xl mx-auto text-center">
@@ -13,7 +12,7 @@ export default function OrderPage({ params }: { params: { id: string } }) {
         </div>
         <h1 className="text-3xl font-bold text-slate-900 mb-2">Order confirmed</h1>
         <p className="text-gray-600 mb-6">
-          Thank you! Your ScentTrail order <span className="font-mono text-slate-800">#{params.id}</span> has been placed.
+          Thank you! Your ScentTrail order <span className="font-mono text-slate-800">#{id}</span> has been placed.
         </p>
         <p className="text-gray-500 text-sm mb-10">A confirmation email has been sent. Your pods will ship within 1 business day.</p>
         <Link
