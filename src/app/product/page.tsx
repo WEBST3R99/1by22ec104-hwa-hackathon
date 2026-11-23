@@ -53,14 +53,16 @@ export default function ProductPage() {
       <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-4">
-            <Image
-              src="/images/pod-closeup.png"
-              alt={kit.name}
-              fill
-              className="rounded-xl object-cover border"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
+            <div className="relative h-[520px] w-full rounded-xl overflow-hidden border bg-gray-100">
+              <Image
+                src="/images/pod-closeup.png"
+                alt={kit.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
             <div className="flex gap-2">
               {COLORS.map((c) => (
                 <button
@@ -82,12 +84,12 @@ export default function ProductPage() {
 
             <div className="bg-white p-6 rounded-xl border shadow-sm">
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-3xl font-bold">$${unitPrice}</span>
+                <span className="text-3xl font-bold">${unitPrice}</span>
                 {surcharge > 0 && (
-                  <span className="text-sm text-gray-500">+ $${surcharge} Tough+</span>
+                  <span className="text-sm text-gray-500">+ ${surcharge} Tough+</span>
                 )}
                 {scentRefill && (
-                  <span className="text-sm text-gray-500">+ $${SCENT_REFILL_PRICE} scent refill</span>
+                  <span className="text-sm text-gray-500">+ ${SCENT_REFILL_PRICE} scent refill</span>
                 )}
               </div>
               <p className="text-sm text-gray-500">{kit.short}</p>
@@ -126,7 +128,7 @@ export default function ProductPage() {
                             : "bg-white text-gray-700 border-gray-200 hover:border-gray-400"
                         }`}
                       >
-                        {r.name} {r.surcharge > 0 ? `(+$${r.surcharge})` : ""}
+                        {r.name} {r.surcharge > 0 ? `(+${r.surcharge})` : ""}
                       </button>
                     ))}
                   </div>
@@ -140,7 +142,7 @@ export default function ProductPage() {
                       onChange={() => setScentRefill(!scentRefill)}
                       className="rounded border-gray-300 text-slate-800 focus:ring-scent"
                     />
-                    <span className="text-sm text-gray-700">Add scent refill (+$${SCENT_REFILL_PRICE})</span>
+                    <span className="text-sm text-gray-700">Add scent refill (+${SCENT_REFILL_PRICE})</span>
                   </label>
                 </div>
 

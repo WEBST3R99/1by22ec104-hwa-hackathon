@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { KITS } from "@/lib/products";
 import Link from "next/link";
 
@@ -17,9 +18,18 @@ export default function ProductCard() {
               key={kit.id}
               className="bg-white rounded-xl border p-6 hover:shadow-lg transition"
             >
+              <div className="relative h-48 rounded-lg overflow-hidden mb-4 bg-gray-100">
+                <Image
+                  src="/images/pod-closeup.png"
+                  alt={kit.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
               <div className="flex justify-between items-baseline mb-2">
                 <h3 className="text-xl font-bold">{kit.name}</h3>
-                <span className="text-lg font-bold">$${kit.price}</span>
+                <span className="text-lg font-bold">${kit.price}</span>
               </div>
               <p className="text-sm text-gray-500 mb-4">{kit.coverage}</p>
               <p className="text-gray-600 mb-6">{kit.short}</p>

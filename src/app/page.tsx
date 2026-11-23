@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1">
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/hero-pods.png')] bg-cover bg-center opacity-60" />
+        <div className="absolute inset-0 bg-[url('/images/hero-pods.png')] bg-cover bg-center opacity-60 min-h-[560px]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow">
             ScentTrail
